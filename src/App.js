@@ -1,19 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Cart from './components/Cart';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class App extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      header:'My Header'
+    }
+  }
+
+  componentDidMount = () => {
+    this.setState({
+      header:'new header'
+    })
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <MuiThemeProvider>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <Header header={this.state.header}/>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-7"></div>
+            <div className="col-md-5">
+              <Cart/>
+            </div>
+          </div>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
