@@ -1,0 +1,16 @@
+.App {
+  background-color:lightgrey;
+  padding:30
+}
+
+.Header {
+  height:50px;
+  background-color:white;
+  border-radius:5px;
+  margin-bottom:30px;
+}
+.Cart {
+  background-color:white;
+  padding:15;
+  border-radius:5px;
+}
