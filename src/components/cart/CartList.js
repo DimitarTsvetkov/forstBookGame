@@ -3,18 +3,17 @@ import CartItem from './CartItem'
 
 class CartList extends Component {
 
-  constructor(props){
-    super(props)
-  } 
-
-  getItems = (itemList) => {
-    if(itemList.length > 0){
-        const cartList = itemList.map((item)=>{
+  getItems = (items) => {
+    if(items.length > 0){
+        const cartList = items.map((item)=>{
           return (<CartItem 
             key={item.id}
             label={item.label} 
             price={item.price} 
-            id={item.id}/>)
+            id={item.id}
+            removeItem={this.props.removeItem}
+          />)
+
         })
         return cartList
     }
@@ -23,7 +22,7 @@ class CartList extends Component {
   render() {
     return (
       <div className="CartList">
-        {this.getItems(this.props.itemList)}
+        {this.getItems(this.props.items)}
       </div>
     );
   }

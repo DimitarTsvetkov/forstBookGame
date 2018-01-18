@@ -1,6 +1,6 @@
 .App {
   background-color:lightgrey;
-  padding:30
+  padding:30px;
 }
 
 .Header {
@@ -11,6 +11,6 @@
 }
 .Cart {
   background-color:white;
-  padding:15;
+  padding:15px;
   border-radius:5px;
 }
