@@ -116,15 +116,7 @@ class Chart extends Component {
                         />
 
 
-                        <VictoryLine
-                            key={0}
-                            data={this.props.temp}
-                            interpolation="natural"
-                            style={{data: {stroke: colors[0]}}}
 
-                            // normalize data
-                            y={(datum) => datum.y / this.props.maxTemp}
-                        />
 
                         <VictoryScatter data={this.props.temp}
                                         size={3}
@@ -139,14 +131,40 @@ class Chart extends Component {
                         />
 
 
-                        <VictoryLine
+                        <VictoryArea
                             key={1}
                             data={this.props.humidity}
                             interpolation="natural"
-                            style={{data: {stroke: colors[1]}}}
-
+                            style={{
+                                data: {
+                                    stroke: colors[1],
+                                    fill: colors[1],
+                                    fillOpacity: 0.5
+                                },
+                                parent: {border: "1px solid " + colors[1], overflow: 'visible'}
+                            }}
                             // normalize data
                             y={(datum) => datum.y / this.props.maxHumidity*4}
+                            y0={() => -5}
+                        />
+
+                        <VictoryArea
+                            key={0}
+                            data={this.props.temp}
+                            interpolation="natural"
+                            style={{
+                                data: {
+                                    stroke: colors[0],
+                                    fill: colors[0],
+                                    fillOpacity: 0.5
+                                },
+                                parent: {border: "1px solid " + colors[1], overflow: 'visible'}
+                            }}
+
+                            // normalize data
+                            y={(datum) => datum.y / this.props.maxTemp}
+                            y0={() => -5}
+
                         />
 
                         <VictoryScatter data={this.props.humidity}
