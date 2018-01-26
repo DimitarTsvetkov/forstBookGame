@@ -8,7 +8,7 @@ class Promo extends Component {
   render() {
     return (
       <Paper className="Promo">
-        <img src={promoImage} alt={"promo image"}/>
+        <img src={promoImage} alt={"promo"}/>
       </Paper>
     );
   }

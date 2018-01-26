@@ -49,3 +49,14 @@
 .HeaderLink.active > div > div > span{
   color: black !important;
 }
+
+.weather-day {
+  padding: 15px;
+  background: #00bbd4;
+  color: #fff;
+  font-size: 20px;
+}
+
+.chart-container {
+  margin-bottom:15px;
+}

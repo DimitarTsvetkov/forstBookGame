@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -22,7 +22,7 @@ class Header extends Component {
                     label="Home"
                     key="Home"
                     style={styles.button}
-                    containerElement={<NavLink className="HeaderLink" exact to="/">Home</NavLink>}
+                    containerElement={<Link className="HeaderLink" to="/">Home</Link>}
                     icon={<span className="glyphicon glyphicon-home" aria-hidden="true"></span>}
                 />
                 <RaisedButton
@@ -30,8 +30,16 @@ class Header extends Component {
                     key="Categories"
                     style={styles.button}
                     labelColor={styles.linkColor}
-                    containerElement={<NavLink className="HeaderLink" exact to="/categories">Categories</NavLink>}
+                    containerElement={<Link className="HeaderLink" to="/categories">Categories</Link>}
                     icon={<span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span>}
+                />
+                <RaisedButton
+                    label="Chart"
+                    key="Chart"
+                    style={styles.button}
+                    labelColor={styles.linkColor}
+                    containerElement={<Link className="HeaderLink" to="/chart">Chart</Link>}
+                    icon={<span className="glyphicon glyphicon-stats" aria-hidden="true"></span>}
                 />
             </Paper>
     );

@@ -3,8 +3,9 @@ import Header from './components/header/Header';
 import Cart from './components/cart/Cart';
 import CategoryList from './components/categories/CategoryList';
 import Promo from './components/promo/Promo';
+import Weather from './components/chart/Weather';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import './App.css';
+import  './App.css';
 
 import {
     BrowserRouter as Router,
@@ -25,6 +26,13 @@ const routes = [
         header: () => <Header/>,
         right: () => <Cart/>,
         left: () => <CategoryList/>
+    },
+    {
+        path:'/chart',
+        exact:true,
+        header: () => <Header/>,
+        right: () => <Cart/>,
+        left: () => <Weather/>
     }
 ]
 
@@ -50,7 +58,7 @@ class App extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-md-7">
+                            <div className="col-md-8">
                                 {routes.map((route, i) =>
                                     <Route
                                         key={i}
@@ -60,7 +68,7 @@ class App extends Component {
                                     />
                                 )}
                             </div>
-                            <div className="col-md-5">
+                            <div className="col-md-4">
                                 {routes.map((route, i) =>
                                     <Route
                                         key={i}

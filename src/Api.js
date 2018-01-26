@@ -1,3 +1,4 @@
+
 let Api = {
     get: (options = {}) => {
         Api.executeRequest(options, 'GET')
@@ -18,7 +19,7 @@ let Api = {
 
         let _data = Api.prepareData(data, type)
         
-        if (type == 'GET' && Object.keys(data).length > 0) {
+        if (type === 'GET' && Object.keys(data).length > 0) {
             url = url + '?' + Object.keys(data).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`).join('&');
         }
         return fetch(url, _data)
@@ -44,7 +45,7 @@ let Api = {
             // }
             // nachin da dobavim v headers kym requesta
         }
-        if(type == 'POST') {
+        if(type === 'POST') {
             requestData.body = data
         }
 
