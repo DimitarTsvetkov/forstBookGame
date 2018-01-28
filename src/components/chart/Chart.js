@@ -118,17 +118,7 @@ class Chart extends Component {
 
 
 
-                        <VictoryScatter data={this.props.temp}
-                                        size={3}
-                                        style={{
-                                            data: {
-                                                fill: '#fff',
-                                                stroke: colors[0],
-                                                strokeWidth: 1
-                                            }
-                                        }}
-                                        y={(datum) => datum.y / this.props.maxTemp}
-                        />
+
 
 
                         <VictoryArea
@@ -167,6 +157,17 @@ class Chart extends Component {
 
                         />
 
+                        <VictoryScatter data={this.props.temp}
+                                        size={3}
+                                        style={{
+                                            data: {
+                                                fill: '#fff',
+                                                stroke: colors[0],
+                                                strokeWidth: 1
+                                            }
+                                        }}
+                                        y={(datum) => datum.y / this.props.maxTemp}
+                        />
                         <VictoryScatter data={this.props.humidity}
                                         size={3}
                                         style={{
