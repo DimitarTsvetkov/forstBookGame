@@ -26,11 +26,11 @@ class Header extends Component {
                     icon={<span className="glyphicon glyphicon-home" aria-hidden="true"></span>}
                 />
                 <RaisedButton
-                    label="Categories"
-                    key="Categories"
+                    label="Login"
+                    key="Login"
                     style={styles.button}
                     labelColor={styles.linkColor}
-                    containerElement={<Link className="HeaderLink" to="/categories">Categories</Link>}
+                    containerElement={<Link className="HeaderLink" to="/login">Login</Link>}
                     icon={<span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span>}
                 />
                 <RaisedButton
@@ -40,6 +40,14 @@ class Header extends Component {
                     labelColor={styles.linkColor}
                     containerElement={<Link className="HeaderLink" to="/chart">Chart</Link>}
                     icon={<span className="glyphicon glyphicon-stats" aria-hidden="true"></span>}
+                />
+                <RaisedButton
+                    label="Registration"
+                    key="Registration"
+                    style={styles.button}
+                    labelColor={styles.linkColor}
+                    containerElement={<Link className="HeaderLink" to="/registration">Registration</Link>}
+                    icon={<span className="glyphicon glyphicon-align-justify" aria-hidden="true"></span>}
                 />
             </Paper>
     );

@@ -4,6 +4,8 @@ import Cart from './components/cart/Cart';
 import CategoryList from './components/categories/CategoryList';
 import Promo from './components/promo/Promo';
 import Weather from './components/chart/Weather';
+import Register from './components/registration/Register';
+import Login from './components/login/Login';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import  './App.css';
 
@@ -21,11 +23,10 @@ const routes = [
         left: () => <Promo/>
     },
     {
-        path:'/categories',
+        path:'/login',
         exact:true,
         header: () => <Header/>,
-        right: () => <Cart/>,
-        left: () => <CategoryList/>
+        middle: () => <Login/>
     },
     {
         path:'/chart',
@@ -33,6 +34,12 @@ const routes = [
         header: () => <Header/>,
         right: () => <Cart/>,
         left: () => <Weather/>
+    },
+    {
+        path:'/registration',
+        exact:true,
+        header: () => <Header/>,
+        middle: () => <Register/>
     }
 ]
 
@@ -75,6 +82,16 @@ class App extends Component {
                                         path={route.path}
                                         exact={route.exact}
                                         component={route.right}
+                                    />
+                                )}
+                            </div>
+                            <div className="col-md-12">
+                                {routes.map((route, i) =>
+                                    <Route
+                                        key={i}
+                                        path={route.path}
+                                        exact={route.exact}
+                                        component={route.middle}
                                     />
                                 )}
                             </div>
