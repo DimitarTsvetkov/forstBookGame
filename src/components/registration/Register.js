@@ -3,7 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-
+import { Link } from 'react-router-dom';
 
 class Register extends Component {
     constructor(props){
@@ -58,7 +58,12 @@ class Register extends Component {
                             onChange = {(event,newValue) => this.setState({password:newValue})}
                         />
                         <br/>
-                        <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+                        <RaisedButton
+                            label="Submit"
+                            primary={true}
+                            style={style}
+                            containerElement={<Link className="HeaderLink" to="/menu">Home</Link>}
+                            onClick={(event) => this.handleClick(event)}/>
                         </div>
                             <div class="col-lg-3"></div>
                     </div>

@@ -6,6 +6,8 @@ import Promo from './components/promo/Promo';
 import Weather from './components/chart/Weather';
 import Register from './components/registration/Register';
 import Login from './components/login/Login';
+import Home from "./components/login/Home";
+import Menu from "./components/login/Menu";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import  './App.css';
 
@@ -14,19 +16,23 @@ import {
     Route
 } from 'react-router-dom';
 
+
+
 const routes = [
     {
         path:'/',
         exact:true,
-        header: () => <Header/>,
-        right: () => <Cart/>,
-        left: () => <Promo/>
+        middle: () => <Home/>
     },
     {
-        path:'/login',
+        path:'/menu',
         exact:true,
-        header: () => <Header/>,
-        middle: () => <Login/>
+        middle: () => <Menu/>
+    },
+    {
+        path:'/registration',
+        exact:true,
+        middle: () => <Register/>
     },
     {
         path:'/chart',
@@ -36,11 +42,12 @@ const routes = [
         left: () => <Weather/>
     },
     {
-        path:'/registration',
+        path:'/login',
         exact:true,
         header: () => <Header/>,
-        middle: () => <Register/>
+        middle: () => <Login/>
     }
+
 ]
 
 
