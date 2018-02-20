@@ -5,13 +5,18 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "material-ui": "^0.20.0",
+    "mkp-react-native-button": "^1.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-native-image-button": "^1.0.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "0.9.5",
     "victory": "^0.25.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "css-loader": "^0.28.9",
+    "style-loader": "^0.20.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

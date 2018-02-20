@@ -62,6 +62,34 @@
   font-size: 20px;
 }
 
+.sign{
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.loginmessage{
+}
+.center {
+    position: absolute;
+
+}
+
+.loginscreen {
+    background-color: rgba(251, 255, 236, 0.71);
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+}
+
+.screen{
+    background-color: rgba(251, 255, 236, 0.71);
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+}
+
 .chart-container {
   margin-bottom:15px;
 }

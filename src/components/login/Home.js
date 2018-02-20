@@ -25,9 +25,9 @@ class Home extends Component {
         }
     }
     componentWillMount(){
-        var loginscreen=[];
+        const loginscreen = [];
         loginscreen.push(<Login parentContext={this} appContext={this.props.parentContext}/>);
-        var loginmessage = "Not registered yet, Register Now";
+        const loginmessage = "Not registered yet, Register Now";
         this.setState({
             loginscreen:loginscreen,
             loginmessage:loginmessage
@@ -35,28 +35,36 @@ class Home extends Component {
     }
     render() {
         return (
-            <div className="loginscreen">
-                {this.state.loginscreen}
-                <div>
-                    <MuiThemeProvider>
-                        <div class="row">
-                            <div class="col-lg-3"></div>
-                            <div class="col-lg-6">
-                                {this.state.loginmessage}
+            <div className="row">
+                <div className="col-lg-3"/>
+                <div className="col-lg-6" >
+                     <div className="loginscreen" >
+                     {this.state.loginscreen}
                         <div>
-                            <RaisedButton
-                                label={this.state.buttonLabel}
-                                key={this.state.buttonLabel}
-                                primary={true}
-                                style={style}
-                                containerElement={<Link className="HeaderLink" to="/registration">Home</Link>}
-                                onClick={(event) => this.handleClick(event)}/>
+                            <MuiThemeProvider>
+                                <div className="row">
+                                    <div className="col-lg-3"/>
+                                    <div className="col-lg-6" >
+                                        <div className="loginmessage">
+                                        {this.state.loginmessage}
+                                        </div>
+                                            <div>
+                                                <RaisedButton
+                                                    label={this.state.buttonLabel}
+                                                    key={this.state.buttonLabel}
+                                                    primary={true}
+                                                    style={style}
+                                                    containerElement={<Link className="HeaderLink" to="/registration">Home</Link>}
+                                                    onClick={(event) => this.handleClick(event)}/>
+                                            </div>
+                                        </div>
+                                    <div className="col-lg-3"/>
+                                </div>
+                            </MuiThemeProvider>
                         </div>
-                            </div>
-                            <div class="col-lg-3"></div>
-                        </div>
-                    </MuiThemeProvider>
+                     </div>
                 </div>
+                <div className="col-lg-3"/>
             </div>
         );
     }

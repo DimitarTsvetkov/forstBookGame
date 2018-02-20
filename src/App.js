@@ -24,6 +24,7 @@ const routes = [
         exact:true,
         middle: () => <Home/>
     },
+
     {
         path:'/menu',
         exact:true,

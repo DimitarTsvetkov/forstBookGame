@@ -3,7 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
     constructor(props){
@@ -17,11 +17,13 @@ class Login extends Component {
         return (
             <div>
                 <MuiThemeProvider>
-                    <div class="row">
-                        <div class="col-lg-3"></div>
-                        <div class="col-lg-6">
+                    <div className="row">
+                        <div className="col-lg-3"/>
+                        <div className="col-lg-6" >
                         <AppBar
                             title="Login"
+                            showMenuIconButton={false}
+
                         />
                         <TextField
                             hintText="Enter your Username"
@@ -43,7 +45,7 @@ class Login extends Component {
                             containerElement={<Link className="HeaderLink" to="/menu">Home</Link>}
                             onClick={(event) => this.handleClick(event)}/>
                         </div>
-                        <div class="col-lg-3"></div>
+                        <div className="col-lg-3"/>
                     </div>
                 </MuiThemeProvider>
             </div>
