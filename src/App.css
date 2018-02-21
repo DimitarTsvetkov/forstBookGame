@@ -75,7 +75,6 @@
 }
 
 .loginscreen {
-    background-color: rgba(251, 255, 236, 0.71);
     padding: 20px;
     width: 500px;
     height: 500px;
@@ -92,4 +91,29 @@
 
 .chart-container {
   margin-bottom:15px;
+}
+.login-container {
+    background-image: url("assets/css/Scroll_opened.png");
+    width:100%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    width:350px;
+    padding:0 60px;
+    padding-bottom:100%;
+    display:inline-block;
+}
+.login-input {
+    width: 100%;
+    display: block;
+    background: #f2d8ac;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid #a88346;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.3);
+}
+.login-input:first-child {
+    margin-bottom:5px;
+}
+.input-container {
+    padding-top:100px;
 }

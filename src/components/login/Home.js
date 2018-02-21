@@ -26,7 +26,7 @@ class Home extends Component {
     }
     componentWillMount(){
         const loginscreen = [];
-        loginscreen.push(<Login parentContext={this} appContext={this.props.parentContext}/>);
+        loginscreen.push();
         const loginmessage = "Not registered yet, Register Now";
         this.setState({
             loginscreen:loginscreen,
@@ -43,10 +43,10 @@ class Home extends Component {
                         <div>
                             <MuiThemeProvider>
                                 <div className="row">
-                                    <div className="col-lg-3"/>
-                                    <div className="col-lg-6" >
                                         <div className="loginmessage">
-                                        {this.state.loginmessage}
+                                        {/*{this.state.loginmessage}*/}
+                                            <Login parentContext={this} appContext={this.props.parentContext}/>
+
                                         </div>
                                             <div>
                                                 <RaisedButton
@@ -58,8 +58,6 @@ class Home extends Component {
                                                     onClick={(event) => this.handleClick(event)}/>
                                             </div>
                                         </div>
-                                    <div className="col-lg-3"/>
-                                </div>
                             </MuiThemeProvider>
                         </div>
                      </div>
