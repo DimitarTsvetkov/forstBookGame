@@ -5,9 +5,9 @@ import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import { Link } from 'react-router-dom';
 import {lightGreen500} from 'material-ui/styles/colors';
-import {orange500} from 'material-ui/styles/colors';
-import RaisedButton from 'material-ui/RaisedButton';
-import img from './woodsign.png'
+import {orange900} from 'material-ui/styles/colors';
+import img from './woodsign.png';
+
 
 
 
@@ -16,7 +16,7 @@ const muiTheme = getMuiTheme({
         textColor: lightGreen500,
     },
     appBar: {
-        color: orange500
+        color: orange900
     }
 });
 class Register extends Component {
@@ -33,70 +33,77 @@ class Register extends Component {
 
 
     render() {
-        return (
-            <div className="row">
-                <div className="col-lg-3"/>
-                <div className="col-lg-6">
-            <MuiThemeProvider muiTheme={muiTheme}>
-                <div className="screen">
-                <div className="row">
-                    <div className="col-lg-3"/>
-                    <div className="col-lg-6">
-                        <AppBar
-                            title="Registration"
-                            showMenuIconButton={false}
-
-                        />
-                        <TextField
-                            hintStyle={{color: orange500}}
-                            hintText="Enter your First Name"
-                            floatingLabelStyle={{color: orange500}}
-                            floatingLabelText="First Name"
-                            onChange={(event, newValue) => this.setState({first_name: newValue})}
-                        />
-                        <br/>
-                        <TextField
-                            hintText="Enter your Last Name"
-                            floatingLabelText="Last Name"
-                            onChange={(event, newValue) => this.setState({last_name: newValue})}
-                        />
-                        <br/>
-                        <TextField
-                            hintText="Enter your username"
-                            floatingLabelText="Username"
-                            onChange={(event, newValue) => this.setState({username: newValue})}
-                        />
-                        <br/>
-                        <TextField
-                            hintText="Enter your Email"
-                            type="email"
-                            floatingLabelText="Email"
-                            onChange={(event, newValue) => this.setState({email: newValue})}
-                        />
-                        <br/>
-                        <TextField
-                            type="password"
-                            hintText="Enter your Password"
-                            floatingLabelText="Password"
-                            onChange={(event, newValue) => this.setState({password: newValue})}
-                        />
-                        <br/>
-                        <RaisedButton
-                            label="Submit"
-                            primary={true}
-                            styles={style}
-                            containerElement={<Link className="HeaderLink" to="/menu">Home</Link>}
-                            onClick={(event) => this.handleClick(event)}>
-                        </RaisedButton>
+        return <div className="row">
+            <div className="col-lg-3"/>
+            <div className="col-lg-6">
+                <MuiThemeProvider muiTheme={muiTheme}>
+                    <div className="screenreg">
+                        <div className="row">
+                            <div className="col-lg-3"/>
+                            <div className="col-lg-6">
+                                <AppBar
+                                    title="Registration"
+                                    showMenuIconButton={false}
+                                />
+                                <TextField
+                                    hintStyle={{color: orange900}}
+                                    hintText="Enter your First Name"
+                                    floatingLabelStyle={{color: orange900}}
+                                    floatingLabelText="First Name"
+                                    onChange={(event, newValue) => this.setState({first_name: newValue})}
+                                />
+                                <br/>
+                                <TextField
+                                    hintStyle={{color: orange900}}
+                                    hintText="Enter your Last Name"
+                                    floatingLabelStyle={{color: orange900}}
+                                    floatingLabelText="Last Name"
+                                    onChange={(event, newValue) => this.setState({last_name: newValue})}
+                                />
+                                <br/>
+                                <TextField
+                                    hintStyle={{color: orange900}}
+                                    hintText="Enter your username"
+                                    floatingLabelStyle={{color: orange900}}
+                                    floatingLabelText="Username"
+                                    onChange={(event, newValue) => this.setState({username: newValue})}
+                                />
+                                <br/>
+                                <TextField
+                                    hintStyle={{color: orange900}}
+                                    hintText="Enter your Email"
+                                    floatingLabelStyle={{color: orange900}}
+                                    type="email"
+                                    floatingLabelText="Email"
+                                    onChange={(event, newValue) => this.setState({email: newValue})}
+                                />
+                                <br/>
+                                <TextField
+                                    hintStyle={{color: orange900}}
+                                    type="password"
+                                    hintText="Enter your Password"
+                                    floatingLabelStyle={{color: orange900}}
+                                    floatingLabelText="Password"
+                                    onChange={(event, newValue) => this.setState({password: newValue})}
+                                />
+                                <br/>
+                                <Link className="ButtonLink" to="/menu">
+                                    <button className="button">
+                                        <img src={require("./woodsign.png")}
+                                             width="150" height="80"
+                                             onClick={(event) => this.handleClick(event)}>
+                                        </img>
+                                        <div className="centered">Submit</div>
+                                    </button>
+                                </Link>
+                            </div>
+                            <div className="col-lg-3"/>
+                        </div>
                     </div>
-                    <div className="col-lg-3"/>
-                </div>
-                </div>
-            </MuiThemeProvider>
-                </div>
-                <div className="col-lg-3"/>
+                </MuiThemeProvider>
             </div>
-        );
+            <div className="col-lg-3"/>
+        </div>;
     }
 }
 

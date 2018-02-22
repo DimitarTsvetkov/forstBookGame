@@ -3,6 +3,27 @@
   padding:30px;
 }
 
+.button {
+    background-color: rgba(244, 230, 255, 0);
+    border: none;
+    color: rgba(255, 255, 255, 0);
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    color: white;
+}
+.linkbutton{
+    position:absolute;
+
+}
+.imagebutton{
+    position: relative;
+
+}
+
 .Menu {
   margin-bottom:30px;
   padding:15px;
@@ -68,6 +89,7 @@
 }
 
 .loginmessage{
+
 }
 .center {
     position: absolute;
@@ -85,7 +107,15 @@
     background-color: rgba(251, 255, 236, 0.71);
     padding: 20px;
     width: 500px;
-    height: 500px;
+    height: 400px;
+    text-align: center;
+}
+
+.screenreg{
+    background-color: rgba(251, 255, 236, 0.71);
+    padding: 20px;
+    width: 500px;
+    height: 600px;
     text-align: center;
 }
 
@@ -117,3 +147,13 @@
 .input-container {
     padding-top:100px;
 }
+
+
+
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
