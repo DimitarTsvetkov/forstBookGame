@@ -10,6 +10,7 @@ import Home from "./components/login/Home";
 import Menu from "./components/login/Menu";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import  './App.css';
+import firebase, { auth, provider } from './firebase.js';
 
 import {
     BrowserRouter as Router,
