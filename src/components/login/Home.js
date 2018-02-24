@@ -38,14 +38,16 @@ class Home extends Component {
             <div className="row">
                 <div className="col-lg-3"/>
                 <div className="col-lg-6" >
+
                      <div className="loginscreen" >
                      {this.state.loginscreen}
                         <div>
                             <MuiThemeProvider>
                                 <div className="row">
                                         <div className="loginmessage">
-                                        {/*{this.state.loginmessage}*/}
+
                                             <Login parentContext={this} appContext={this.props.parentContext}/>
+                                            {this.state.loginmessage}
 
                                         </div>
                                             <div>

@@ -18,18 +18,27 @@ class Login extends Component {
             <div>
                 <MuiThemeProvider>
                     <div className="row">
+                        <div className="col-lg-3"/>
+                        <div className="col-lg-6" >
                         <div className="text-center" >
-                            <div className="login-container">
+
                                 <div className="input-container">
-                                    <input
-                                        className="login-input"
-                                        placeholder="Enter your Username"
+                                    <AppBar
+                                        title="Login"
+                                        showMenuIconButton={false}
+
+                                    />
+                                    <TextField
+                                        hintText="Enter your Username"
+                                        type="username"
+                                        floatingLabelText="username"
                                         onChange = {(event,newValue) => this.setState({username:newValue})}
                                     />
-                                    <input
-                                        className="login-input"
+                                    <br/>
+                                    <TextField
+                                        hintText="Enter your password"
                                         type="password"
-                                        placeholder="Enter your Password"
+                                        floatingLabelText="Enter your Password"
                                         onChange = {(event,newValue) => this.setState({password:newValue})}
                                     />
                                 </div>
@@ -42,9 +51,9 @@ class Login extends Component {
                                     containerElement={<Link className="HeaderLink" to="/menu">Home</Link>}
                                     onClick={(event) => this.handleClick(event)}/>
                             </div>
-
-
                         </div>
+                            <div className="col-lg-3"/>
+
                     </div>
                 </MuiThemeProvider>
             </div>

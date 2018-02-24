@@ -24,11 +24,6 @@
 
 }
 
-.Menu {
-  margin-bottom:30px;
-  padding:15px;
-}
-
 .Header {
   margin-bottom:30px;
   padding:15px;
@@ -117,6 +112,17 @@
     width: 500px;
     height: 600px;
     text-align: center;
+}
+
+.screenmenu{
+    text-align: center;
+
+}
+.logoimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .chart-container {

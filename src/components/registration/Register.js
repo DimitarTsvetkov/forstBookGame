@@ -4,8 +4,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import { Link } from 'react-router-dom';
-import {lightGreen500} from 'material-ui/styles/colors';
-import {orange900} from 'material-ui/styles/colors';
+import {lightGreen700} from 'material-ui/styles/colors';
+import {lightGreen900} from 'material-ui/styles/colors';
 import img from './woodsign.png';
 
 
@@ -13,10 +13,10 @@ import img from './woodsign.png';
 
 const muiTheme = getMuiTheme({
     palette: {
-        textColor: lightGreen500,
+        textColor: lightGreen700,
     },
     appBar: {
-        color: orange900
+        color: lightGreen900
     }
 });
 class Register extends Component {
@@ -46,43 +46,43 @@ class Register extends Component {
                                     showMenuIconButton={false}
                                 />
                                 <TextField
-                                    hintStyle={{color: orange900}}
+                                    hintStyle={{color: lightGreen700}}
                                     hintText="Enter your First Name"
-                                    floatingLabelStyle={{color: orange900}}
+                                    floatingLabelStyle={{color: lightGreen900}}
                                     floatingLabelText="First Name"
                                     onChange={(event, newValue) => this.setState({first_name: newValue})}
                                 />
                                 <br/>
                                 <TextField
-                                    hintStyle={{color: orange900}}
+                                    hintStyle={{color: lightGreen700}}
                                     hintText="Enter your Last Name"
-                                    floatingLabelStyle={{color: orange900}}
+                                    floatingLabelStyle={{color: lightGreen900}}
                                     floatingLabelText="Last Name"
                                     onChange={(event, newValue) => this.setState({last_name: newValue})}
                                 />
                                 <br/>
                                 <TextField
-                                    hintStyle={{color: orange900}}
+                                    hintStyle={{color: lightGreen700}}
                                     hintText="Enter your username"
-                                    floatingLabelStyle={{color: orange900}}
+                                    floatingLabelStyle={{color: lightGreen900}}
                                     floatingLabelText="Username"
                                     onChange={(event, newValue) => this.setState({username: newValue})}
                                 />
                                 <br/>
                                 <TextField
-                                    hintStyle={{color: orange900}}
+                                    hintStyle={{color: lightGreen700}}
                                     hintText="Enter your Email"
-                                    floatingLabelStyle={{color: orange900}}
+                                    floatingLabelStyle={{color: lightGreen900}}
                                     type="email"
                                     floatingLabelText="Email"
                                     onChange={(event, newValue) => this.setState({email: newValue})}
                                 />
                                 <br/>
                                 <TextField
-                                    hintStyle={{color: orange900}}
+                                    hintStyle={{color: lightGreen700}}
                                     type="password"
                                     hintText="Enter your Password"
-                                    floatingLabelStyle={{color: orange900}}
+                                    floatingLabelStyle={{color: lightGreen900}}
                                     floatingLabelText="Password"
                                     onChange={(event, newValue) => this.setState({password: newValue})}
                                 />
@@ -90,7 +90,8 @@ class Register extends Component {
                                 <Link className="ButtonLink" to="/menu">
                                     <button className="button">
                                         <img src={require("./woodsign.png")}
-                                             width="150" height="80"
+                                             width="150"
+                                             height="80"
                                              onClick={(event) => this.handleClick(event)}>
                                         </img>
                                         <div className="centered">Submit</div>
