@@ -38,7 +38,7 @@ class Home extends Component {
             <div className="row">
                 <div className="col-lg-3"/>
                 <div className="col-lg-6" >
-
+                    <div className="input-container">
                      <div className="loginscreen" >
                      {this.state.loginscreen}
                         <div>
@@ -51,18 +51,24 @@ class Home extends Component {
 
                                         </div>
                                             <div>
-                                                <RaisedButton
-                                                    label={this.state.buttonLabel}
-                                                    key={this.state.buttonLabel}
-                                                    primary={true}
-                                                    style={style}
-                                                    containerElement={<Link className="HeaderLink" to="/registration">Home</Link>}
-                                                    onClick={(event) => this.handleClick(event)}/>
+                                                <Link className="ButtonLink" to="/registration">
+                                                <button className="button">
+                                                    <img src={require("./woodsign.png")}
+                                                         key={this.state.buttonLabel}
+                                                         width="150"
+                                                         height="80"
+                                                         onClick={(event) => this.handleClick(event)}>
+                                                    </img>
+                                                    <div className="centered">Register</div>
+                                                </button>
+                                            </Link>
+
                                             </div>
                                         </div>
                             </MuiThemeProvider>
                         </div>
                      </div>
+                    </div>
                 </div>
                 <div className="col-lg-3"/>
             </div>

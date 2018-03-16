@@ -6,7 +6,7 @@ import TextField from 'material-ui/TextField';
 import { Link } from 'react-router-dom';
 import {lightGreen700} from 'material-ui/styles/colors';
 import {lightGreen900} from 'material-ui/styles/colors';
-import img from './woodsign.png';
+
 
 
 

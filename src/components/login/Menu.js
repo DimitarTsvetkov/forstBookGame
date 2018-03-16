@@ -1,7 +1,5 @@
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
 import React, { Component}  from 'react';
 import { Link } from 'react-router-dom'
 import {lightGreen700, lightGreen900} from 'material-ui/styles/colors';
@@ -33,7 +31,7 @@ class Menu extends Component{
             <div className="row">
                 <div className="col-lg-3"/>
                 <div className="col-lg-6" >
-            <div>
+                    <div className="text-center">
                 <MuiThemeProvider muiTheme={muiTheme}>
                     <div className="screenmenu">
                     <div className="row">
@@ -53,7 +51,7 @@ class Menu extends Component{
                                 </button>
                             </Link>
                         <br/>
-                            <Link className="ButtonLink" to="/">
+                            <Link className="ButtonLink" to="/statistic">
                                 <button className="button">
                                     <img src={require("./woodsign.png")}
                                          width="230"
@@ -64,7 +62,7 @@ class Menu extends Component{
                                 </button>
                             </Link>
                         <br/>
-                            <Link className="ButtonLink" to="/">
+                            <Link className="ButtonLink" to="/flipbook">
                                 <button className="button">
                                     <img src={require("./woodsign.png")}
                                          width="230"
