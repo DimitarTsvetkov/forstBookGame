@@ -1,3 +1,4 @@
+
 .App {
   background-color:lightgrey;
   padding:30px;
@@ -84,7 +85,7 @@
 }
 
 .loginmessage{
-
+    color: #005700;
 }
 .center {
     position: absolute;
@@ -92,6 +93,7 @@
 }
 
 .loginscreen {
+    background-color: rgba(251, 255, 236, 0.71);
     padding: 20px;
     width: 500px;
     height: 500px;
@@ -114,6 +116,10 @@
     text-align: center;
 }
 
+.appbar{
+    text-align: center;
+}
+
 .screenmenu{
     text-align: center;
 
@@ -125,8 +131,26 @@
     width: 100%;
 }
 
-.chart-container {
+table, td, th {
+    text-align: left;
+    border-bottom: 1px solid #005700;
+    color: #005700;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    padding: 15px;
+}
+
+.table-container {
   margin-bottom:15px;
+    background-color: rgba(251, 255, 236, 0.71);
+    padding: 20px;
+    text-align: center;
 }
 .login-container {
     background-image: url("assets/css/Scroll_opened.png");

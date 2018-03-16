@@ -8,6 +8,8 @@ import Register from './components/registration/Register';
 import Login from './components/login/Login';
 import Home from "./components/login/Home";
 import Menu from "./components/login/Menu";
+import Flipbook from './components/login/Flipbook';
+import Statistic from "./components/statistic/Statistic";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import  './App.css';
 
@@ -36,11 +38,14 @@ const routes = [
         middle: () => <Register/>
     },
     {
-        path:'/chart',
+        path:'/statistic',
         exact:true,
-        header: () => <Header/>,
-        right: () => <Cart/>,
-        left: () => <Weather/>
+        middle: () => <Statistic/>
+    },
+    {
+        path:'/flipbook',
+        exact:true,
+        middle: () => <Flipbook/>
     },
     {
         path:'/login',

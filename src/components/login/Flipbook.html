@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="turn.js"></script>
+    <script type="text/css">
+
+    </script>
+
+</head>
+<body style="background-image: url('desk_wooden.jpg'); background-size: cover;">
+<div id="container" style="position:absolute;">
+
+        <div id="flipbook" style="position:relative">
+            <div style="background-image: url('bookcover.jpg'); background-size: 100% 100%; " class="hard"> Turn.js </div>
+            <div style="background-image: url('pagef.jpg'); background-size: 100% 100%;" class="hard"></div>
+            <div style="background-image: url('pageb.jpg');background-size: 100% 100%;"> 1
+                <h1 style="text-align: center">Forest book</h1>
+            </div>
+            <div style="background-image: url('pagef.jpg');background-size: 100% 100%;"> 2
+                <h1 style="text-align: center">Голямата панда</h1>
+                <p style="padding:30px;"> Голямата панда (Ailuropoda melanoleuca), наричана още бамбукова мечка
+                    и пъстра мечка, е чернобял бозайник от семейство Мечкови (Ursidae), който се среща в гористите
+                    местности в Западен и Централен Китай. Храни се предимно с бамбук.
+                </p>
+                <p style="padding:30px;"> Преди е била поставяна в семейство Енотови заедно с вида Малка панда, но
+                    днес обикновено е класифицирана в семейство Мечки. Имало е предложение тя да се обособи в
+                    собствено семейство, наречено Пандови (Ailuropodidae). Аргументи за това са устройството на черепа
+                    и на зъбите, които не приличат на тези на мечките. Разпространена е в Китай,обявена е за национално
+                    съкровище. Обитава планинските бамбукови гори. Денят на пандата се чества на 30-ти ноември.
+                </p>
+            </div >
+
+            <div style="background-image: url('pageb.jpg');background-size: 100% 100%;"> 3
+                <br>
+                <img src="species__image-panda.jpg" style=" width: 300px; height: 200px; padding:50px ">
+            </div>
+            <div style="background-image: url('pagef.jpg');background-size: 100% 100%;"> 4 </div>
+            <div style="background-image: url('pageb.jpg');background-size: 100% 100%;" class="hard"></div>
+            <div  style="background-image: url('bookcover.jpg');background-size: 100% 100%;" class="hard"></div>
+        </div>
+
+
+</div>
+        <script type="text/javascript">
+            $(function(){
+                $("#flipbook").turn({
+                    width: 900,
+                    height: 550,
+                    autoCenter: true
+                });
+            });
+        </script>
+
+
+</body>
+</html>
