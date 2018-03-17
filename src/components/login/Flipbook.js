@@ -9,20 +9,22 @@ import img2 from './forestbook1.png';
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import Menu from "./Menu";
 import FlipPage from 'react-flip-page';
+
 const muiTheme = getMuiTheme({
     appBar: {
         color: lightGreen900
     }
 });
 
-class Flipbook extends Component{
+class Flipbook extends Component {
+    constructor(props) {
+        super(props);
+    }
 
     render() {
-        return <FlipPage>
-            <img src="http://unsplash.it/320/480"/>
-            <img src="http://unsplash.it/320/480"/>
-        </FlipPage>
-
+        return (
+            <a href="Flipbookpage.html"></a>
+        );
     }
 }
 export default Flipbook;

@@ -38,6 +38,11 @@ class Statistic extends Component{
                         <td>2</td>
                         <td>30</td>
                     </tr>
+                    <tr>
+                        <td>Tom</td>
+                        <td>3</td>
+                        <td>50</td>
+                    </tr>
                     </tbody>
 
 

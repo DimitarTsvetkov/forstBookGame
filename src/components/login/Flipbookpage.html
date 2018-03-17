@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ForestBook</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="turn.js"></script>
+    <script type="text/css">
+
+    </script>
+
+</head>
+<body style="background-image: url('img/desk_wooden.jpg'); background-size: cover;">
+<script src="bundle.js"></script>
+<div id="container" style="position:absolute;">
+
+        <div id="flipbook" style="position:relative">
+            <div style="background-image: url('img/bookcover.jpg'); background-size: 100% 100%; " class="hard"> </div>
+            <div style="background-image: url('img/pagef.jpg'); background-size: 100% 100%;" class="hard"></div>
+            <div style="background-image: url('img/pageb.jpg');background-size: 100% 100%;"> 1
+                <h1 style="text-align: center">Forest book</h1>
+            </div>
+            <div style="background-image: url('img/pagef.jpg');background-size: 100% 100%;"> 2
+                <h1 style="text-align: center">Голяма панда</h1>
+                <p style="padding:30px;"> Голямата панда (Ailuropoda melanoleuca), наричана още бамбукова мечка
+                    и пъстра мечка, е чернобял бозайник от семейство Мечкови (Ursidae), който се среща в гористите
+                    местности в Западен и Централен Китай. Храни се предимно с бамбук.
+                </p>
+                <p style="padding:30px;"> Преди е била поставяна в семейство Енотови заедно с вида Малка панда, но
+                    днес обикновено е класифицирана в семейство Мечки. Имало е предложение тя да се обособи в
+                    собствено семейство, наречено Пандови (Ailuropodidae). Аргументи за това са устройството на черепа
+                    и на зъбите, които не приличат на тези на мечките. Разпространена е в Китай,обявена е за национално
+                    съкровище. Обитава планинските бамбукови гори. Денят на пандата се чества на 30-ти ноември.
+                </p>
+            </div >
+
+            <div style="background-image: url('img/pageb.jpg');background-size: 100% 100%;"> 3
+                <br>
+                <img src="img/species__image-panda.jpg" style=" width: 300px; height: 200px; padding:50px ">
+            </div>
+            <div style="background-image: url('img/pagef.jpg');background-size: 100% 100%;"> 4
+                <h1 style="text-align: center">Додо</h1>
+                <p style="padding:30px;">Додо (Raphus cucullatus) е изчезнала птица от семейство Гълъбови.
+                Додото е живяло на Маскаренските острови: Мавриций, Реюнион и Родригес и е било високо повече от един метър.
+                Додо са го наричали португалците, дошлите по-късно холандци са го кръстили Дронт.
+
+                Додо е един от най-ранните примери на животно изчезнало поради действията на хората и по тази причина е
+                често използван символ на изтребването на видовете</p>
+            </div>
+            <div style="background-image: url('img/pageb.jpg');background-size: 100% 100%;"> 5
+                <br>
+                <img src="img/dodo.jpg" style=" width: 300px; height: 200px; padding:50px "></div>
+
+            <div style="background-image: url('img/pagef.jpg');background-size: 100% 100%;">6</div>
+            <div style="background-image: url('img/pageb.jpg');background-size: 100% 100%;" class="hard"></div>
+            <div style="background-image: url('img/bookcover.jpg');background-size: 100% 100%;" class="hard"></div>
+        </div>
+
+
+</div>
+        <script type="text/javascript">
+            $(function(){
+                $("#flipbook").turn({
+                    width: 900,
+                    height: 550,
+                    autoCenter: true
+                });
+            });
+        </script>
+
+
+</body>
+</html>

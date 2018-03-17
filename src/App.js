@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
 import Header from './components/header/Header';
-import Cart from './components/cart/Cart';
-import CategoryList from './components/categories/CategoryList';
-import Promo from './components/promo/Promo';
-import Weather from './components/chart/Weather';
 import Register from './components/registration/Register';
 import Login from './components/login/Login';
 import Home from "./components/login/Home";
 import Menu from "./components/login/Menu";
-import Flipbook from './components/login/Flipbook';
+//import Flipbook from './components/login/Flipbook';
 import Statistic from "./components/statistic/Statistic";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import  './App.css';
@@ -43,11 +39,11 @@ const routes = [
         exact:true,
         middle: () => <Statistic/>
     },
-    {
+   /* {
         path:'/flipbook',
         exact:true,
         middle: () => <Flipbook/>
-    },
+    },*/
     {
         path:'/login',
         exact:true,

@@ -7,6 +7,7 @@ import img from './woodsign.png';
 import img2 from './forestbook1.png';
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 
+//const Page = require("./reactmaster/src/components/login/Flipbookpage.html?_ijt=6vpmujq9c91a81b2jr54fam6up");
 const style = {
     margin: 15,
 };
@@ -62,7 +63,8 @@ class Menu extends Component{
                                 </button>
                             </Link>
                         <br/>
-                            <Link className="ButtonLink" to="/flipbook">
+                            <a className="ButtonLink" href={'http://localhost:63342/reactmaster/src/components/login/Flipbookpage.html?_ijt=6vpmujq9c91a81b2jr54fam6up'}>
+
                                 <button className="button">
                                     <img src={require("./woodsign.png")}
                                          width="230"
@@ -71,7 +73,7 @@ class Menu extends Component{
                                     </img>
                                     <div className="centered">Book of animals</div>
                                 </button>
-                            </Link>
+                            </a>
                         <br/>
                             <Link className="ButtonLink" to="/">
                                 <button className="button">
