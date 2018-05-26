@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 import Header from './components/header/Header';
-import Cart from './components/cart/Cart';
-import CategoryList from './components/categories/CategoryList';
-import Promo from './components/promo/Promo';
-import Weather from './components/chart/Weather';
 import Register from './components/registration/Register';
 import Login from './components/login/Login';
 import Home from "./components/login/Home";
 import Menu from "./components/login/Menu";
+import About from './components/login/About';
+import Statistic from "./components/statistic/Statistic";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import  './App.css';
-import firebase, { auth, provider } from './firebase.js';
+import  { app, firebase } from './firebase/firebase';
 
 import {
     BrowserRouter as Router,
@@ -37,11 +35,14 @@ const routes = [
         middle: () => <Register/>
     },
     {
-        path:'/chart',
+        path:'/statistic',
         exact:true,
-        header: () => <Header/>,
-        right: () => <Cart/>,
-        left: () => <Weather/>
+        middle: () => <Statistic/>
+    },
+    {
+        path:'/about',
+        exact:true,
+        middle: () => <About/>
     },
     {
         path:'/login',
