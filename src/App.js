@@ -4,11 +4,11 @@ import Register from './components/registration/Register';
 import Login from './components/login/Login';
 import Home from "./components/login/Home";
 import Menu from "./components/login/Menu";
-//import Flipbook from './components/login/Flipbook';
+import About from './components/login/About';
 import Statistic from "./components/statistic/Statistic";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import  './App.css';
-import firebase, { auth, provider } from './firebase.js';
+import  { app, firebase } from './firebase/firebase';
 
 import {
     BrowserRouter as Router,
@@ -39,11 +39,11 @@ const routes = [
         exact:true,
         middle: () => <Statistic/>
     },
-   /* {
-        path:'/flipbook',
+    {
+        path:'/about',
         exact:true,
-        middle: () => <Flipbook/>
-    },*/
+        middle: () => <About/>
+    },
     {
         path:'/login',
         exact:true,

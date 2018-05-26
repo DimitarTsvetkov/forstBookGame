@@ -5,6 +5,7 @@ import React, { Component}  from 'react';
 import { Link } from 'react-router-dom';
 import Login from './Login';
 import * as Colors from "material-ui/styles/colors";
+import {app, facebookProvider} from '../../firebase/firebase';
 
 
 const style = {
@@ -39,6 +40,7 @@ class Home extends Component {
                 <div className="col-lg-3"/>
                 <div className="col-lg-6" >
                     <div className="input-container">
+
                      <div className="loginscreen" >
                      {this.state.loginscreen}
                         <div>

@@ -8,6 +8,16 @@
     <script type="text/javascript" src="turn.js"></script>
     <script type="text/css">
 
+
+        #flipbook .page-wrapper{
+            -webkit-perspective:2000px;
+            -moz-perspective: 2000px;
+            -ms-perspective: 2000px;
+            perspective: 2000px;
+        }
+
+
+
     </script>
 
 </head>
@@ -16,12 +26,12 @@
 <div id="container" style="position:absolute;">
 
         <div id="flipbook" style="position:relative">
-            <div style="background-image: url('img/bookcover.jpg'); background-size: 100% 100%; " class="hard"> </div>
+            <div style="background-image: url('img/bookcover.jpg'); background-size: 100% 100%; " class="  hard"> </div>
             <div style="background-image: url('img/pagef.jpg'); background-size: 100% 100%;" class="hard"></div>
-            <div style="background-image: url('img/pageb.jpg');background-size: 100% 100%;"> 1
+            <div style="background-image: url('img/pageb.jpg');background-size: 100% 100%;" > 1
                 <h1 style="text-align: center">Forest book</h1>
             </div>
-            <div style="background-image: url('img/pagef.jpg');background-size: 100% 100%;"> 2
+            <div style="background-image: url('img/pagef.jpg');background-size: 100% 100%;" > 2
                 <h1 style="text-align: center">Голяма панда</h1>
                 <p style="padding:30px;"> Голямата панда (Ailuropoda melanoleuca), наричана още бамбукова мечка
                     и пъстра мечка, е чернобял бозайник от семейство Мечкови (Ursidae), който се среща в гористите
@@ -54,9 +64,8 @@
 
             <div style="background-image: url('img/pagef.jpg');background-size: 100% 100%;">6</div>
             <div style="background-image: url('img/pageb.jpg');background-size: 100% 100%;" class="hard"></div>
-            <div style="background-image: url('img/bookcover.jpg');background-size: 100% 100%;" class="hard"></div>
+            <div style="background-image: url('img/bookcover.jpg');background-size: 100% 100%;" class=" hard"></div>
         </div>
-
 
 </div>
         <script type="text/javascript">
@@ -64,9 +73,12 @@
                 $("#flipbook").turn({
                     width: 900,
                     height: 550,
-                    autoCenter: true
-                });
+                    autoCenter: true,
+
+                })
+
             });
+
         </script>
 
 
