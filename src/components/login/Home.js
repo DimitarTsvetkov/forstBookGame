@@ -44,7 +44,6 @@ class Home extends Component {
                      <div className="loginscreen" >
                      {this.state.loginscreen}
                         <div>
-                            <MuiThemeProvider>
                                 <div className="row">
                                         <div className="loginmessage">
 
@@ -67,7 +66,6 @@ class Home extends Component {
 
                                             </div>
                                         </div>
-                            </MuiThemeProvider>
                         </div>
                      </div>
                     </div>

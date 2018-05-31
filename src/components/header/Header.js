@@ -9,7 +9,7 @@ const styles = {
     button: {
         marginLeft: 5,
     },
-    linkColor:'#888'
+    linkColor:'#000000'
 };
 
 
@@ -17,7 +17,10 @@ class Header extends Component {
 
     render() {
         return (
-            <Paper className="Header">
+            <nav className="Header">
+                <div className="row">
+                    <div className="col-md-7"/>
+                    <div className="col-lg-5">
                 <RaisedButton
                     label="Home"
                     key="Home"
@@ -34,14 +37,6 @@ class Header extends Component {
                     icon={<span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span>}
                 />
                 <RaisedButton
-                    label="Chart"
-                    key="Chart"
-                    style={styles.button}
-                    labelColor={styles.linkColor}
-                    containerElement={<Link className="HeaderLink" to="/chart">Chart</Link>}
-                    icon={<span className="glyphicon glyphicon-stats" aria-hidden="true"></span>}
-                />
-                <RaisedButton
                     label="Registration"
                     key="Registration"
                     style={styles.button}
@@ -49,7 +44,9 @@ class Header extends Component {
                     containerElement={<Link className="HeaderLink" to="/registration">Registration</Link>}
                     icon={<span className="glyphicon glyphicon-align-justify" aria-hidden="true"></span>}
                 />
-            </Paper>
+                    </div>
+                </div>
+            </nav>
     );
     }
 }

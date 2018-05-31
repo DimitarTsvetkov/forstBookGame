@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { SignUpLink } from './SignUp';
 import { auth, db } from '../../firebase';
 import * as Routes from '../constants/Routes';
-import { PasswordForgetLink } from '../passwordAction/PasswordForget';
-import PasswordChangeForm, { PasswordChangeLink } from '../passwordAction/PasswordChange';
 import {
   Link,
   withRouter,
@@ -11,7 +9,6 @@ import {
 const SignInPage = ({ history }) =>
   <div>
     <SignInForm history={history} />
-    <PasswordForgetLink />
   </div>
 
 const byPropKey = (propertyName, value) => () => ({

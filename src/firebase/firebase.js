@@ -1,5 +1,6 @@
-import Rebase from 're-base';
-import firebase from 'firebase'
+import * as firebase from 'firebase';
+// Required for side-effects
+import '@firebase/firestore'
 
 const config = {
     apiKey: "AIzaSyDslH02QzfxDwxPkTOKvINpgjauwf1nh00",
@@ -9,11 +10,12 @@ const config = {
     storageBucket: "forest-book.appspot.com",
     messagingSenderId: "315342178024"
 };
-const auth = firebase.auth;
-const app = firebase.initializeApp(config);
-const base = Rebase.createClass(app.database());
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(config);
+}
+
+const db = firebase.firestore();
+const auth = firebase.auth();
 const facebookProvider = new firebase.auth.FacebookAuthProvider()
-const email = document.getElementById("emailtest");
-const pass = document.getElementById("passtest");
-const logbuttun= document.getElementById("logbuttun");
-export { app,email, pass, auth, base, facebookProvider }
+export {  db, auth, facebookProvider };
