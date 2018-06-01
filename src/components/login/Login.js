@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link, withRouter, } from 'react-router-dom';
 import img from './woodsign.png';
-import * as Routes from '../constants/Routes';
 import{ Redirect} from 'react-router-dom'
 import { Toaster, Intent} from '@blueprintjs/core'
-import {app, auth, email, pass, facebookProvider} from '../../firebase/firebase';
-import {SignInForm} from "../userAction/SignIn";
+import { app, facebookProvider} from '../../firebase/firebase';
+import { SignUpLink } from '../registration/Register';
+import { auth } from '../../firebase';
+import * as Routes from '../constants/Routes';
+
 
 const SignInPage = ({ history }) =>
     <div>
@@ -27,8 +29,8 @@ class Login extends Component {
 
     constructor(props){
         super(props);
-        this.state = { ...INITIAL_STATE };
         this.authWithFacebook = this.authWithFacebook.bind(this)
+        this.state = { ...INITIAL_STATE };
         this.state = {
             redirect: false
         }
@@ -62,16 +64,21 @@ class Login extends Component {
         auth.doSignInWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState(() => ({ ...INITIAL_STATE }));
-                history.push(Routes.BUSSEATS);
+                history.push(Routes.MENU);
             })
             .catch(error => {
                 this.setState(byPropKey('error', error));
             });
 
-        event.preventDefault()
+        event.preventDefault();
     }
 
+
     render() {
+
+        if (this.state.redirect === true){
+            return<Redirect to= '/menu' />
+        }
 
         const {
             email,
@@ -84,51 +91,53 @@ class Login extends Component {
             email === '';
 
         return (
+
             <div>
                     <div className="row">
                         <header className="header">
                             <h1>Login</h1>
                         </header>
                         <div className="col-lg-3"/>
+                        <form onSubmit={this.onSubmit}>
                         <div className="col-lg-6" >
-                        <div className="text-center" >
+
+                            <div className="text-center" >
                             <Toaster ref={(element) => { this.toaster = element }} />
 
 
                             <br/>
-                            <form  onSubmit={this.onSubmit} >
                                 <input className="inputform"
-                                        placeholder="Enter your email"
-                                        type="text"
                                        value={email}
+                                       type="text"
+                                       placeholder="Enter your email"
                                        onChange={event => this.setState(byPropKey('email', event.target.value))}  />
                                     <br/>
 
                                     <input className="inputform"
-                                        placeholder="Enter your password"
-                                        type="password"
-                                           value={pass}
-                                           onChange={event => this.setState(byPropKey('password', event.target.value))}  />
-
-                            </form>
+                                           value={password}
+                                           onChange={event => this.setState(byPropKey('password', event.target.value))}
+                                           type="password"
+                                           placeholder="Enter your password" />
                             </div>
                         </div>
+                        </form>
                             <div className="col-lg-3"/>
                         <div className="row">
+                            <form onSubmit={this.onSubmit}>
                             <div className="col-md-6">
 
                                 <button className="buttonl"
-                                        disabled={isInvalid}>
+                                        disabled={isInvalid} type="submit">
                                     <img src={require("./woodsign.png")}
                                          width="150"
                                          height="80"
-
                                       >
                                     </img>
                                     <div className="centered">Submit</div>
                                 </button>
-
                             </div>
+                            </form>
+
 
                             <div className="col-md-6">
                                 <button className="buttonface" onClick={() => {this.authWithFacebook()}}>
@@ -155,5 +164,8 @@ const style = {
     margin: 15,
 
 };
+export default withRouter(SignInPage);
 
-export default Login;
+export {
+    Login,
+};

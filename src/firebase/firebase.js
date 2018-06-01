@@ -11,11 +11,10 @@ const config = {
     messagingSenderId: "315342178024"
 };
 
-if (!firebase.apps.length) {
-    firebase.initializeApp(config);
-}
 
+
+const app = firebase.initializeApp(config);
 const db = firebase.firestore();
 const auth = firebase.auth();
 const facebookProvider = new firebase.auth.FacebookAuthProvider()
-export {  db, auth, facebookProvider };
+export { app, db, auth, facebookProvider };

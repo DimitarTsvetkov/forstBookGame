@@ -5,6 +5,8 @@ import {lightGreen700, lightGreen900} from 'material-ui/styles/colors';
 import img from './woodsign.png';
 import img2 from './forestbook1.png';
 import getMuiTheme from "material-ui/styles/getMuiTheme";
+import { auth } from '../../firebase';
+import { firebase } from '../../firebase';
 
 //const Page = require("./reactmaster/src/components/login/Flipbookpage.html?_ijt=6vpmujq9c91a81b2jr54fam6up");
 const style = {
@@ -26,6 +28,17 @@ class Menu extends Component {
             exit: '',
             bookUrl: ''
         }
+        this.state = {
+            authUser: null,
+        };
+    }
+
+    componentDidMount() {
+        firebase.auth.onAuthStateChanged(authUser => {
+            authUser
+                ? this.setState(() => ({ authUser }))
+                : this.setState(() => ({ authUser: null }));
+        });
     }
 
 
@@ -89,11 +102,11 @@ class Menu extends Component {
                                         {/*</a>*/}
                                         <br/>
                                         <Link className="ButtonLink" to="/">
-                                            <button className="button">
+                                            <button className="button" type="button"
+                                                    onClick={auth.doSignOut} >
                                                 <img src={require("./woodsign.png")}
                                                      width="230"
-                                                     height="80"
-                                                     onClick={(event) => this.handleClick(event)}>
+                                                     height="80" >
                                                 </img>
                                                 <div className="centered">Exit</div>
                                             </button>

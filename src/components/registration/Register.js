@@ -119,7 +119,7 @@ class Register extends Component {
                                         <img src={require("./woodsign.png")}
                                              width="150"
                                              height="80"
-                                             onClick={(event) => this.handleClick(event)}>
+                                             >
                                         </img>
                                         <div className="centered">Submit</div>
                                     </button>
@@ -138,17 +138,11 @@ class Register extends Component {
 }
 
 
-const SignUpLink = () =>
-    <p>
-        Don't have an account?
-        {' '}
-        <Link to={Routes.SIGN_UP}>Sign Up</Link>
-    </p>
+
 
 
 export default withRouter(SignUpPage);
 
 export {
     Register,
-    SignUpLink,
 };
