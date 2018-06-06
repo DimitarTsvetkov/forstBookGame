@@ -19,15 +19,30 @@ class Frontpage extends Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-lg-3"/>
-                    <div className="col-lg-6">
-            <img className="logoimg" src={require("../../assets/forestbook1.png")}
+                    <div className="col-md-6">
+            <img className="logoimg"
 
-            />
+                 src={require("../../assets/forestbook1.png")}
+
+            />      </div>
+                        <div className="col-md-6">
+
+
+                            <div className="textscreen" >
+                                <h1>ForestBook</h1>
+                                <p> е образователна игра, съчетаваща знанието и забавата в едно.
+                                Ако обичате животните и искате да научите повече за тях, за начина им на живот
+                                    и навиците им, но също така харесвате интересни и приятни игри, заповядайне
+                                    в нашия див свят изпълнен с приключения.</p>
+                            </div>
+                        </div>
+
                     </div>
-                    <div className="col-lg-3"/>
-                </div>
+
+
             </div>
+
+
                     );
     }
 

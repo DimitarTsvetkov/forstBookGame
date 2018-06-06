@@ -89,7 +89,7 @@ class Menu extends Component {
                                             </button>
                                         </Link>
                                         <br/>
-                                        {/*<a className="ButtonLink" href={'http://localhost:63342/reactmaster/src/components/login/Flipbookpage.html?_ijt=6vpmujq9c91a81b2jr54fam6up'}>*/}
+                                        <a className="ButtonLink" href={'http://localhost:63342/reactmaster/src/components/login/Flipbookpage.html?_ijt=6vpmujq9c91a81b2jr54fam6up'}>
 
                                         <button className="button">
                                             <img src={require("./woodsign.png")}
@@ -99,7 +99,7 @@ class Menu extends Component {
                                             </img>
                                             <div className="centered">Book of animals</div>
                                         </button>
-                                        {/*</a>*/}
+                                        </a>
                                         <br/>
                                         <Link className="ButtonLink" to="/">
                                             <button className="button" type="button"
