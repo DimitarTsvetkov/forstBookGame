@@ -31,6 +31,9 @@
 .Header {
   margin-bottom:30px;
   padding:15px;
+    background-color: rgba(62, 110, 76, 0.82);
+
+
 }
 .textcenter {
   padding:15px;
@@ -165,17 +168,28 @@
     text-align: center;
 
 }
+.textscreen {
+    background-color: rgba(62, 110, 76, 0.82);
+    padding: 22px;
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    color: white;
+}
 .logoimg {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
 }
+.navbar-brand{
+    color: white;
+}
 
 table, td, th {
     text-align: left;
     border-bottom: 1px solid #005700;
-    color: #005700;
+    color: #ffffff;
 }
 
 
@@ -189,10 +203,12 @@ th, td {
 
 .table-container {
   margin-bottom:15px;
-    background-color: rgba(251, 255, 236, 0.71);
+    background-color: rgba(62, 110, 76, 0.82);
     padding: 20px;
     text-align: center;
 }
+
+
 .login-container {
     background-image: url("assets/css/Scroll_opened.png");
     width:100%;

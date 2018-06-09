@@ -9,17 +9,21 @@ import Statistic from "./components/statistic/Statistic";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import  './App.css';
 import  { app, firebase } from './firebase/firebase';
+import Frontpage from "./components/frontpage/Frontpage";
 
-import {
-    BrowserRouter as Router,
-    Route
-} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 
 
 const routes = [
     {
         path:'/',
+        exact:true,
+        header: () => <Header/>,
+        middle: () => <Frontpage/>
+    },
+    {
+        path:'/login',
         exact:true,
         middle: () => <Home/>
     },
@@ -44,18 +48,19 @@ const routes = [
         exact:true,
         middle: () => <About/>
     },
-    {
-        path:'/login',
-        exact:true,
-        header: () => <Header/>,
-        middle: () => <Login/>
-    }
 
 ]
 
 
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            authUser: null,
+        };
+    }
 
     render() {
         return (

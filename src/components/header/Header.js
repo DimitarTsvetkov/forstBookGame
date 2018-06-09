@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+import {lightGreen700, black} from 'material-ui/styles/colors';
+import img from '../../assets/forestbook1.png';
 
 
 const styles = {
@@ -17,15 +19,14 @@ class Header extends Component {
 
     render() {
         return (
-            <Paper className="Header">
+            <nav className="Header" >
+                <div className="row">
+                    <div className="col-md-8">
+
+                    </div>
+                    <div className="col-lg-4">
                 <RaisedButton
-                    label="Home"
-                    key="Home"
-                    style={styles.button}
-                    containerElement={<Link className="HeaderLink" to="/">Home</Link>}
-                    icon={<span className="glyphicon glyphicon-home" aria-hidden="true"></span>}
-                />
-                <RaisedButton
+                    backgroundColor={black}
                     label="Login"
                     key="Login"
                     style={styles.button}
@@ -34,14 +35,7 @@ class Header extends Component {
                     icon={<span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span>}
                 />
                 <RaisedButton
-                    label="Chart"
-                    key="Chart"
-                    style={styles.button}
-                    labelColor={styles.linkColor}
-                    containerElement={<Link className="HeaderLink" to="/chart">Chart</Link>}
-                    icon={<span className="glyphicon glyphicon-stats" aria-hidden="true"></span>}
-                />
-                <RaisedButton
+                    backgroundColor={black}
                     label="Registration"
                     key="Registration"
                     style={styles.button}
@@ -49,7 +43,9 @@ class Header extends Component {
                     containerElement={<Link className="HeaderLink" to="/registration">Registration</Link>}
                     icon={<span className="glyphicon glyphicon-align-justify" aria-hidden="true"></span>}
                 />
-            </Paper>
+                    </div>
+                </div>
+            </nav>
     );
     }
 }

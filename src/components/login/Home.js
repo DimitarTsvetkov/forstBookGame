@@ -2,10 +2,13 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import React, { Component}  from 'react';
-import { Link } from 'react-router-dom';
 import Login from './Login';
 import * as Colors from "material-ui/styles/colors";
 import {app, facebookProvider} from '../../firebase/firebase';
+import { Link, withRouter } from 'react-router-dom';
+import { SignUpLink } from '../registration/Register';
+import { auth } from '../../firebase';
+import * as Routes from '../constants/Routes';
 
 
 const style = {
@@ -13,17 +16,33 @@ const style = {
     textColor: Colors.white.bold()
 };
 
+const SignInPage = ({ history }) =>
+    <div>
+        <h1>SignIn</h1>
+        <Home history={history} />
+        <SignUpLink />
+    </div>
+
+const byPropKey = (propertyName, value) => () => ({
+    [propertyName]: value,
+});
+
+const INITIAL_STATE = {
+    email: '',
+    password: '',
+    loginscreen:[],
+    loginmessage:'',
+    buttonLabel:'Register',
+    isLogin:true,
+    error: null,
+};
+
 class Home extends Component {
-    constructor(props){
+
+    constructor(props) {
         super(props);
-        this.state={
-            username:'',
-            password:'',
-            loginscreen:[],
-            loginmessage:'',
-            buttonLabel:'Register',
-            isLogin:true
-        }
+
+        this.state = { ...INITIAL_STATE };
     }
     componentWillMount(){
         const loginscreen = [];
@@ -34,7 +53,40 @@ class Home extends Component {
             loginmessage:loginmessage
         })
     }
+
+    onSubmit = (event) => {
+        const {
+            email,
+            password,
+        } = this.state;
+
+        const {
+            history,
+        } = this.props;
+
+        auth.doSignInWithEmailAndPassword(email, password)
+            .then(() => {
+                this.setState(() => ({ ...INITIAL_STATE }));
+                history.push(Routes.HOME);
+            })
+            .catch(error => {
+                this.setState(byPropKey('error', error));
+            });
+
+        event.preventDefault();
+    }
+
     render() {
+        const {
+            email,
+            password,
+            error,
+        } = this.state;
+
+        const isInvalid =
+            password === '' ||
+            email === '';
+
         return (
             <div className="row">
                 <div className="col-lg-3"/>
@@ -44,7 +96,6 @@ class Home extends Component {
                      <div className="loginscreen" >
                      {this.state.loginscreen}
                         <div>
-                            <MuiThemeProvider>
                                 <div className="row">
                                         <div className="loginmessage">
 
@@ -67,7 +118,6 @@ class Home extends Component {
 
                                             </div>
                                         </div>
-                            </MuiThemeProvider>
                         </div>
                      </div>
                     </div>

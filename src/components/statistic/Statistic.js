@@ -53,7 +53,7 @@ class Statistic extends Component{
                         <img src={require("./woodsign.png")}
                              width="150"
                              height="80"
-                             onClick={(event) => this.handleClick(event)}>
+                            >
                         </img>
                         <div className="centered">Back</div>
                     </button>
