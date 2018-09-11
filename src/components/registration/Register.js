@@ -8,6 +8,8 @@ import {lightGreen700} from 'material-ui/styles/colors';
 import {lightGreen900} from 'material-ui/styles/colors';
 import { auth } from '../../firebase';
 import * as Routes from '../constants/Routes';
+import { componentDidMount } from 'react-lifecycle-hoc';
+import * as firebase from 'firebase';
 
 
 const SignUpPage = ({ history }) =>
@@ -28,10 +30,15 @@ const byPropKey = (propertyName, value) => () => ({
 });
 
 class Register extends Component {
+
+
+
     constructor (props) {
         super(props);
         this.state = { ...INITIAL_STATE };
+
     }
+
 
     onSubmit = (event) => {
         const {
@@ -44,6 +51,14 @@ class Register extends Component {
             history,
         } = this.props;
 
+        const rootRef = firebase.database();
+        const post = rootRef.ref('users');
+        var data ={
+            name:this.state.name,
+            username:this.state.username,
+            email:this.state.email
+        }
+        post.push(data);
 
         auth.doCreateUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
@@ -60,6 +75,7 @@ class Register extends Component {
 
     render() {
         const {
+            name,
             username,
             email,
             passwordOne,
@@ -86,14 +102,21 @@ class Register extends Component {
                             <div className="col-lg-3"/>
                             <div className="col-lg-6">
                                 <input className="inputform"
-                                       value={username}
-                                       onChange={event => this.setState(byPropKey('username', event.target.value))}
+                                       value={this.state.name}
+                                       onChange={event => this.setState(byPropKey('name', event.target.value))}
                                        type="text"
                                        placeholder="Enter your Full Name"
                                 />
                                 <br/>
                                 <input className="inputform"
-                                       value={email}
+                                       value={this.state.username}
+                                       onChange={event => this.setState(byPropKey('username', event.target.value))}
+                                       type="text"
+                                       placeholder="Enter your Username"
+                                />
+                                <br/>
+                                <input className="inputform"
+                                       value={this.state.email}
                                        onChange={event => this.setState(byPropKey('email', event.target.value))}
                                        type="email"
                                        placeholder="Enter your Email"

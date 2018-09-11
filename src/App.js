@@ -6,6 +6,7 @@ import Home from "./components/login/Home";
 import Menu from "./components/login/Menu";
 import About from './components/login/About';
 import Statistic from "./components/statistic/Statistic";
+import Adminform from "./components/login/Adminform";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import  './App.css';
 import  { app, firebase } from './firebase/firebase';
@@ -47,7 +48,17 @@ const routes = [
         path:'/about',
         exact:true,
         middle: () => <About/>
+    },{
+        path:'/adminform',
+        exact:true,
+        middle: () => <Adminform/>
     },
+    {
+        path:'/adminform',
+        exact:true,
+        header: () => <Header/>,
+        middle: () => <Adminform/>
+    }
 
 ]
 
