@@ -2,6 +2,7 @@ import React from 'react';
 import withAuthorization from '../withAuthorization';
 import AuthUserContext from '../AuthUserContext';
 
+
 const AdminPage = () =>
     <AuthUserContext.Consumer>
         {authUser =>
@@ -12,6 +13,6 @@ const AdminPage = () =>
         }
     </AuthUserContext.Consumer>
 
-const authCondition = (authUser) => authUser.role === 'ADMIN';
+const authCondition = (authUser) => !!authUser && authUser.role === 'ADMIN';
 
 export default withAuthorization(authCondition)(AdminPage);

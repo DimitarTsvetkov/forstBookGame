@@ -6,6 +6,7 @@ import { firebase } from '../firebase/firebase';
 import * as routes from '../components/constants/Routes';
 import Menu from "./login/Menu";
 import Home from "./login/Home";
+import About from "./login/About";
 
 
 const withAuthorization = (authCondition) => (Component) => {
@@ -17,12 +18,13 @@ const withAuthorization = (authCondition) => (Component) => {
                 }
             });
         }
-
         render() {
+
+
             return (
-                <AuthUserContext.Consumer>
-                    {authUser => authUser ? < Menu/> : null}
-                </AuthUserContext.Consumer>
+                <div>
+                    {authUser => authUser ? <Component /> : null}
+                </div>
             );
         }
     }

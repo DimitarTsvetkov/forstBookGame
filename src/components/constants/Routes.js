@@ -1,4 +1,4 @@
-export const HOME = '/';
+export const HOME = '/home';
 export const MENU = '/menu';
 export const ADMINFORM = '/adminform';
 export const LOG_IN = '/login';

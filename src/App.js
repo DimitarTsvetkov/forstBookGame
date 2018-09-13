@@ -9,8 +9,9 @@ import Statistic from "./components/statistic/Statistic";
 import Adminform from "./components/login/Adminform";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import  './App.css';
-import  { app, firebase } from './firebase/firebase';
+import  { app, firebase,auth } from './firebase/firebase';
 import Frontpage from "./components/frontpage/Frontpage";
+import { componentDidMount } from 'react-lifecycle-hoc';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
@@ -69,9 +70,10 @@ class App extends Component {
         super(props);
 
         this.state = {
-            authUser: null,
+            authUser: null
         };
     }
+
 
     render() {
         return (

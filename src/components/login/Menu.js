@@ -9,6 +9,7 @@ import { auth } from '../../firebase';
 import { firebase } from '../../firebase';
 import AuthUserContext from '../AuthUserContext';
 import SignOutButton from '../SingOut';
+import * as routes from "../constants/Routes";
 
 //const Page = require("./reactmaster/src/components/login/Flipbookpage.html?_ijt=6vpmujq9c91a81b2jr54fam6up");
 const style = {
@@ -21,43 +22,6 @@ const muiTheme = getMuiTheme({
     }
 });
 
-const Navigation = ({ authUser }) =>
-    <AuthUserContext.Consumer>
-        {authUser => authUser.role === 'admin'
-            ? <NavigationAuth />
-            : <NavigationNonAuth />
-        }
-    </AuthUserContext.Consumer>
-
-const NavigationAuth = () =>
-
-        <div>
-            <Link className="ButtonLink" to="/">
-                <button className="button">
-                    <img src={require("./woodsign.png")}
-                         width="230"
-                         height="80">
-                    </img>
-                    <div className="centered">Download game</div>
-                </button>
-            </Link>
-            <br/>
-        </div>
-
-
-const NavigationNonAuth = () =>
-    <div >
-        <Link className="ButtonLink" to="/">
-            <button className="button">
-                <img src={require("./woodsign.png")}
-                     width="230"
-                     height="80">
-                </img>
-                <div className="centered">Download game</div>
-            </button>
-        </Link>
-        <br/>
-    </div>
 
 class Menu extends Component {
     constructor(props) {
@@ -73,14 +37,9 @@ class Menu extends Component {
         };
     }
 
-    componentDidMount() {
-        firebase.auth.onAuthStateChanged(authUser => {
-            authUser
-                ? this.setState(() => ({ authUser }))
-                : this.setState(() => ({ authUser: null }));
-        });
 
-    }
+
+
 
 
     render() {
@@ -101,9 +60,17 @@ class Menu extends Component {
                                     <div className="col-lg-3"/>
                                     <div className="col-lg-6">
                                         <img className="logoimg" src={require("./forestbook1.png")}
-
                                         />
-                                        <div src={Navigation} />
+                                        <Link className="ButtonLink" to="/">
+                                            <button className="button">
+                                                <img src={require("./woodsign.png")}
+                                                     width="230"
+                                                     height="80">
+                                                </img>
+                                                <div className="centered">Download game</div>
+                                            </button>
+                                        </Link>
+                                        <br/>
                                         <Link className="ButtonLink" to="/about">
                                             <button className="button">
                                                 <img src={require("./woodsign.png")}
