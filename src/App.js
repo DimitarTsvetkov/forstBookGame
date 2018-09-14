@@ -12,6 +12,7 @@ import  './App.css';
 import  { app, firebase,auth } from './firebase/firebase';
 import Frontpage from "./components/frontpage/Frontpage";
 import { componentDidMount } from 'react-lifecycle-hoc';
+import Admin from "./components/admin/Admin";
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
@@ -53,6 +54,10 @@ const routes = [
         path:'/adminform',
         exact:true,
         middle: () => <Adminform/>
+    },{
+        path:'/admin',
+        exact:true,
+        middle: () => <Admin/>
     },
     {
         path:'/adminform',
