@@ -7,9 +7,11 @@ import * as Colors from "material-ui/styles/colors";
 import {app, facebookProvider} from '../../firebase/firebase';
 import { Link, withRouter } from 'react-router-dom';
 import { SignUpLink } from '../registration/Register';
-import { auth } from '../../firebase';
+import {auth, firebase, db} from '../../firebase';
 import * as Routes from '../constants/Routes';
 
+const authAdminCondition = (authUser) =>  !!authUser && authUser.username === 'mariaaa';
+const authCondition = (authUser) =>  !!authUser;
 
 const style = {
     margin: 15,
@@ -37,14 +39,44 @@ const INITIAL_STATE = {
     error: null,
 };
 
+var _this = this
+
 class Home extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = { ...INITIAL_STATE };
+        this.state = {
+            users: null,
+        };
     }
+
+
+    componentDidMount() {
+        const {
+            history,
+        } = this.props;
+
+
+            firebase.auth.onAuthStateChanged(authUser => {
+                authUser
+                    ? this.setState({ authUser })
+                    : this.setState({ authUser: null });
+            });
+
+
+        firebase.auth.onAuthStateChanged(authUser => {
+            if (!authAdminCondition(authUser)) {
+                this.props.history.push(Routes.HOME);
+            }
+        });
+
+    }
+
     componentWillMount(){
+
+
         const loginscreen = [];
         loginscreen.push();
         const loginmessage = "Not registered yet, Register Now";
@@ -52,7 +84,9 @@ class Home extends Component {
             loginscreen:loginscreen,
             loginmessage:loginmessage
         })
+
     }
+
 
     onSubmit = (event) => {
         const {
@@ -86,6 +120,8 @@ class Home extends Component {
         const isInvalid =
             password === '' ||
             email === '';
+
+        const { users } = this.state;
 
         return (
             <div className="row">

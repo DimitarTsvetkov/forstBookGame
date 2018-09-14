@@ -7,6 +7,9 @@ import img2 from './forestbook1.png';
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import { auth } from '../../firebase';
 import { firebase } from '../../firebase';
+import AuthUserContext from '../AuthUserContext';
+import SignOutButton from '../SingOut';
+import * as routes from "../constants/Routes";
 
 //const Page = require("./reactmaster/src/components/login/Flipbookpage.html?_ijt=6vpmujq9c91a81b2jr54fam6up");
 const style = {
@@ -18,6 +21,7 @@ const muiTheme = getMuiTheme({
         color: lightGreen900
     }
 });
+
 
 class Menu extends Component {
     constructor(props) {
@@ -33,18 +37,19 @@ class Menu extends Component {
         };
     }
 
-    componentDidMount() {
-        firebase.auth.onAuthStateChanged(authUser => {
-            authUser
-                ? this.setState(() => ({ authUser }))
-                : this.setState(() => ({ authUser: null }));
-        });
-    }
+
+
+
 
 
     render() {
+
+        const {Navigation} = this.state;
+
         return (
+
             <div>
+
             <div className="row">
                 <div className="col-lg-3"/>
                 <div className="col-lg-6">
@@ -55,7 +60,6 @@ class Menu extends Component {
                                     <div className="col-lg-3"/>
                                     <div className="col-lg-6">
                                         <img className="logoimg" src={require("./forestbook1.png")}
-
                                         />
                                         <Link className="ButtonLink" to="/">
                                             <button className="button">
@@ -89,7 +93,7 @@ class Menu extends Component {
                                             </button>
                                         </Link>
                                         <br/>
-                                        <a className="ButtonLink" href={'http://localhost:63342/reactmaster/src/components/login/Flipbookpage.html?_ijt=6vpmujq9c91a81b2jr54fam6up'}>
+                                        <a className="ButtonLink" href={'http://localhost:63342/reactmaster/src/components/login/Flipbookpage.html?_ijt=47jkgr00hpuksml4ajeoe2ve0r'}>
 
                                         <button className="button">
                                             <img src={require("./woodsign.png")}
@@ -102,12 +106,12 @@ class Menu extends Component {
                                         </a>
                                         <br/>
                                         <Link className="ButtonLink" to="/">
-                                            <button className="button" type="button"
-                                                    onClick={auth.doSignOut} >
+                                            <button className="button" onClick={auth.doSignOut}>
                                                 <img src={require("./woodsign.png")}
-                                                     width="230"
-                                                     height="80" >
-                                                </img>
+                                                  width="230"
+                                                  height="80"
+                                                  >
+                                            </img>
                                                 <div className="centered">Exit</div>
                                             </button>
                                         </Link>

@@ -5,7 +5,7 @@ import{ Redirect} from 'react-router-dom'
 import { Toaster, Intent} from '@blueprintjs/core'
 import { app, facebookProvider} from '../../firebase/firebase';
 import { SignUpLink } from '../registration/Register';
-import { auth } from '../../firebase';
+import {auth, firebase} from '../../firebase';
 import * as Routes from '../constants/Routes';
 
 
@@ -23,6 +23,7 @@ const INITIAL_STATE = {
     password: '',
     error: null,
 };
+
 
 
 class Login extends Component {
@@ -72,6 +73,7 @@ class Login extends Component {
 
         event.preventDefault();
     }
+
 
 
     render() {

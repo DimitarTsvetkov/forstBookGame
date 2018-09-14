@@ -6,10 +6,13 @@ import Home from "./components/login/Home";
 import Menu from "./components/login/Menu";
 import About from './components/login/About';
 import Statistic from "./components/statistic/Statistic";
+import Adminform from "./components/login/Adminform";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import  './App.css';
-import  { app, firebase } from './firebase/firebase';
+import  { app, firebase,auth } from './firebase/firebase';
 import Frontpage from "./components/frontpage/Frontpage";
+import { componentDidMount } from 'react-lifecycle-hoc';
+import Admin from "./components/admin/Admin";
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
@@ -47,7 +50,21 @@ const routes = [
         path:'/about',
         exact:true,
         middle: () => <About/>
+    },{
+        path:'/adminform',
+        exact:true,
+        middle: () => <Adminform/>
+    },{
+        path:'/admin',
+        exact:true,
+        middle: () => <Admin/>
     },
+    {
+        path:'/adminform',
+        exact:true,
+        header: () => <Header/>,
+        middle: () => <Adminform/>
+    }
 
 ]
 
@@ -58,9 +75,10 @@ class App extends Component {
         super(props);
 
         this.state = {
-            authUser: null,
+            authUser: null
         };
     }
+
 
     render() {
         return (
