@@ -87,17 +87,17 @@ class Admin extends Component{
 
 
                 const postList = this.state.id.map((dataList, index) =>
-                    <form onSubmit={this.handleRemove.bind(this)}>
+                    <form key={index} onSubmit={this.handleRemove.bind(this)}>
                         <div className='row'>
-                            <div class="col-md-4 col-lg-4">
+                            <div className="col-md-4 col-lg-4">
                                 <h1>{this.state.nameArr[index]}</h1>
                             </div>
                         </div>
                         <div className='row'>
-                            <div class="col-md-4 col-lg-4">
+                            <div className="col-md-4 col-lg-4">
                                 <img src={this.state.img[index]} height={150} />
                             </div>
-                            <div class="col-md-8 col-lg-8">
+                            <div className="col-md-8 col-lg-8">
                                 <br />
                                 {this.state.descriptionArr[index]}
                             </div>

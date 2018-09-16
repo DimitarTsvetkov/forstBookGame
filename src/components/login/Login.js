@@ -65,7 +65,13 @@ class Login extends Component {
         auth.doSignInWithEmailAndPassword(email, password)
             .then((result) => {
                 this.setState(() => ({ ...INITIAL_STATE }));
-                history.push(Routes.MENU);
+
+
+                let afterLogin = Routes.MENU;
+                if(result.email === 'apetrovdev@gmail.com'){
+                    afterLogin = Routes.ADMIN
+                }
+                history.push(afterLogin);
             })
             .catch(error => {
                 this.setState(byPropKey('error', error));
