@@ -24,3 +24,5 @@ export const getRoutes = (from, to) =>
 
 export const getUserById = (uid) =>
     db.collection("users").doc(uid).get();
+
+export const DB = db

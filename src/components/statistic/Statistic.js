@@ -5,7 +5,8 @@ import getMuiTheme from "material-ui/styles/getMuiTheme";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import img from './woodsign.png';
 import { Link } from 'react-router-dom';
-
+import { firebase, db } from '../../firebase';
+import _firebase from 'firebase'
 const muiTheme = getMuiTheme({
     appBar: {
         color: lightGreen900
@@ -13,10 +14,31 @@ const muiTheme = getMuiTheme({
 });
 
 class Statistic extends Component{
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            userData: {},
+            user: {}
+        }
+    }
+    async componentDidMount() {
+        const user = firebase.auth.currentUser;
+        console.log('_user ', user)
+        const userData = await _firebase.database().ref("/users/"+user.uid).once('value')
+        this.setState({
+            userData: userData.val(),
+            user
+        })
+    }
 
     render() {
+        const { userData, user } = this.state
+
+        console.log('this state > ', this.state)
         return(
             <div>
+
                 <MuiThemeProvider  muiTheme={muiTheme}>
                     <AppBar className='appbar'
                     title="Statistic"
@@ -24,29 +46,27 @@ class Statistic extends Component{
                     />
                 </MuiThemeProvider>
                 <div className="table-container">
+                { userData && userData.points &&
                 <table className='table-responsive'>
-                        <thead>
-                        <tr>
-                            <th>Player</th>
-                            <th>Leval</th>
-                            <th>Score</th>
-                        </tr>
-                        </thead>
+                    <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Leval</th>
+                        <th>Score</th>
+                    </tr>
+                    </thead>
                     <tbody>
                     <tr>
-                        <td>Ana</td>
-                        <td>2</td>
-                        <td>30</td>
-                    </tr>
-                    <tr>
-                        <td>Tom</td>
-                        <td>3</td>
-                        <td>50</td>
+                        <td>{user.email}</td>
+                        <td>{userData.level}</td>
+                        <td>{userData.points}</td>
                     </tr>
                     </tbody>
 
 
-                    </table>
+                </table>
+                }
+
                 </div>
                 <Link className="ButtonLink" to="/menu">
                     <button className="button">

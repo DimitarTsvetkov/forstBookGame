@@ -63,7 +63,7 @@ class Login extends Component {
         } = this.props;
 
         auth.doSignInWithEmailAndPassword(email, password)
-            .then(() => {
+            .then((result) => {
                 this.setState(() => ({ ...INITIAL_STATE }));
                 history.push(Routes.MENU);
             })
