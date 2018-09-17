@@ -1,3 +1,4 @@
+
 import * as firebase from 'firebase';
 // Required for side-effects
 import '@firebase/firestore'
@@ -11,7 +12,11 @@ const config = {
     messagingSenderId: "315342178024"
 };
 
+require("firebase/app");
 
+// Add additional services that you want to use
+require("firebase/auth");
+require("firebase/database");
 
 const app = firebase.initializeApp(config);
 const db = firebase.firestore();

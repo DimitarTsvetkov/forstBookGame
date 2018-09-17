@@ -1,13 +1,10 @@
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
+
 import React, {Component}  from 'react';
 import Login from './Login';
 import * as Colors from "material-ui/styles/colors";
-import {app, facebookProvider} from '../../firebase/firebase';
 import {Link, withRouter} from 'react-router-dom';
 import {SignUpLink} from '../registration/Register';
 import {auth, firebase, db} from '../../firebase';
-import * as Routes from '../constants/Routes';
 
 const authAdminCondition = (authUser) => !!authUser && authUser.username === 'mariaaa';
 const authCondition = (authUser) => !!authUser;
@@ -77,27 +74,7 @@ class Home extends Component {
     }
 
 
-    onSubmit = (event) => {
-        const {
-            email,
-            password,
-        } = this.state;
 
-        const {
-            history,
-        } = this.props;
-
-        auth.doSignInWithEmailAndPassword(email, password)
-            .then(() => {
-                this.setState(() => ({...INITIAL_STATE}));
-                history.push(Routes.HOME);
-            })
-            .catch(error => {
-                this.setState(byPropKey('error', error));
-            });
-
-        event.preventDefault();
-    }
 
     render() {
         const {

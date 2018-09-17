@@ -7,6 +7,7 @@ import img from './woodsign.png';
 import { Link } from 'react-router-dom';
 import { firebase, db } from '../../firebase';
 import _firebase from 'firebase'
+
 const muiTheme = getMuiTheme({
     appBar: {
         color: lightGreen900
@@ -19,18 +20,52 @@ class Statistic extends Component{
 
         this.state = {
             userData: {},
-            user: {}
+            user: {},
+                    name: '',
+                    level: '',
+                    point: '',
+                    nameArr: [],
+                    points: [],
+                    levels:[],
+                    id:[],
+                    animals:'',
+                    messages: []
+
         }
     }
     async componentDidMount() {
         const user = firebase.auth.currentUser;
         console.log('_user ', user)
-        const userData = await _firebase.database().ref("/users/"+user.uid).once('value')
-        this.setState({
-            userData: userData.val(),
-            user
-        })
+        const userData = await _firebase.database().ref("users").orderByKey();
+
+        userData.once('value', snap => {
+            snap.forEach(child => {
+                this.setState({
+                    id: this.state.id.concat([child.key]),
+                    nameArr: this.state.nameArr.concat([child.val().name]),
+                    points: this.state.points.concat([child.val().point]),
+                    levels: this.state.levels.concat([child.val().level])
+                });
+
+
+                const postList = this.state.id.map((dataList, index) =>
+
+                        <tr key={index}>
+                            <td>{this.state.nameArr[index]}</td>
+                            <td>{this.state.levels[index]}</td>
+                            <td>{this.state.points[index]}</td>
+                        </tr>
+
+
+                );
+
+                this.setState({
+                    post: postList
+                });
+            });
+        });
     }
+
 
     render() {
         const { userData, user } = this.state
@@ -46,26 +81,21 @@ class Statistic extends Component{
                     />
                 </MuiThemeProvider>
                 <div className="table-container">
-                { userData && userData.points &&
-                <table className='table-responsive'>
-                    <thead>
-                    <tr>
-                        <th>Player</th>
-                        <th>Leval</th>
-                        <th>Score</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>{user.email}</td>
-                        <td>{userData.level}</td>
-                        <td>{userData.points}</td>
-                    </tr>
-                    </tbody>
+                    <table className='table-responsive' >
+                        <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Leval</th>
+                            <th>Score</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {this.state.post}
+
+                        </tbody>
 
 
-                </table>
-                }
+                    </table>
 
                 </div>
                 <Link className="ButtonLink" to="/menu">

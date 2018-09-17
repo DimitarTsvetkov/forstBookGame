@@ -5,11 +5,13 @@ import {lightGreen700, lightGreen900} from 'material-ui/styles/colors';
 import img from './woodsign.png';
 import img2 from './forestbook1.png';
 import getMuiTheme from "material-ui/styles/getMuiTheme";
-import { auth } from '../../firebase';
+import { auth,db } from '../../firebase';
 import { firebase } from '../../firebase';
 import AuthUserContext from '../AuthUserContext';
 import SignOutButton from '../SingOut';
 import * as routes from "../constants/Routes";
+require('firebase/database');
+
 
 //const Page = require("./reactmaster/src/components/login/Flipbookpage.html?_ijt=6vpmujq9c91a81b2jr54fam6up");
 const style = {
@@ -37,6 +39,43 @@ class Menu extends Component {
         };
     }
 
+    async componentDidMount()  {
+        const {
+            history,
+        } = this.props;
+
+
+        firebase.auth.onAuthStateChanged(authUser => {
+            authUser
+                ? this.setState({ authUser })
+                : this.setState({ authUser: null });
+            console.log(authUser.uid);
+
+        });
+
+        firebase.auth.onAuthStateChanged (function(user) {
+            if (user) {
+                console.log("  Photo URL: " + user.getIdToken());
+
+                if (user != null) {
+                    user.providerData.forEach(function (profile) {
+                        console.log("Sign-in provider: " + profile.providerId);
+                        console.log("  Provider-specific UID: " + profile.uid);
+                        console.log("  Name: " + profile.displayName);
+                        console.log("  Email: " + profile.email);
+
+                    });
+
+                }
+
+            } else {
+                console.log("  No user ");
+            }
+
+        });
+
+
+    }
 
 
 
@@ -93,7 +132,7 @@ class Menu extends Component {
                                             </button>
                                         </Link>
                                         <br/>
-                                        <a className="ButtonLink" href={'http://localhost:63342/reactmaster/src/components/login/Flipbookpage.html?_ijt=47jkgr00hpuksml4ajeoe2ve0r'}>
+                                        <a className="ButtonLink" href={'http://localhost:63342/reactmaster/src/components/login/Flipbookpage.html?_ijt=hqf4m1qb4tsgb5j4kv95mg0h68'}>
 
                                         <button className="button">
                                             <img src={require("./woodsign.png")}

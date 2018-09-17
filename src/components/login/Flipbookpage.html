@@ -5,7 +5,15 @@
     <meta charset="UTF-8">
     <title>ForestBook</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="turn.js"></script>
+    <script type="text/javascript" src="turn.js"/>
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/reactfire/0.6.0/reactfire.min.js"></script>
+    <script src="../firebase/firebase.js"></script>
+    <script src="../admin/Admin.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <script type="text/css">
 
 
@@ -20,6 +28,7 @@
 
     </script>
 
+
 </head>
 <body style="background-image: url('img/desk_wooden.jpg'); background-size: cover;">
 <script src="bundle.js"></script>
@@ -30,6 +39,124 @@
             <div style="background-image: url('img/pagef.jpg'); background-size: 100% 100%;" class="hard"></div>
             <div style="background-image: url('img/pageb.jpg');background-size: 100% 100%;" > 1
                 <h1 style="text-align: center">Forest book</h1>
+            </div>
+            <div style="background-image: url('img/pagef.jpg');background-size: 100% 100%;" > 20
+                    <div class="container">
+
+                        <div class="jumbotron">
+
+                            <h1>Order Form</h1>
+
+                            <form>
+
+                                <div class="form-group">
+                                    <label for="fullNameField">Your Full Name: </label>
+                                    <input type="text" class="form-control" id="fullNameField">
+                                </div>
+
+                                <!-- todo: we should add a phone and an email field too so we can contact them back!! -->
+                                <!-- This would be almost the same as the fullNameField, you have to change a couple things though, can you see what? -->
+
+                                <div class="form-group">
+                                    <label for="notesField">What would you like to order?: </label>
+                                    <!-- textarea are like inputs but they're for long text! -->
+                                    <textarea class="form-control" id="notesField"></textarea>
+                                </div>
+
+                                <!-- it's important NOT to use <button> here because that will do something els (that's why we use <a> and make it look like a button using css -->
+                                <a class="btn btn-default" onclick="submitOrder()">Submit Order</a>
+                            </form>
+                        </div>
+
+                        <div>
+                            <h1>Previous Orders</h1>
+                            <div id="previousOrders">
+                                </div>
+                        </div>
+
+                    </div>
+                <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+
+
+                <script>
+                        var config = {
+                            apiKey: "AIzaSyDslH02QzfxDwxPkTOKvINpgjauwf1nh00",
+                            authDomain: "forest-book.firebaseapp.com",
+                            databaseURL: "https://forest-book.firebaseio.com",
+                            projectId: "forest-book",
+                            storageBucket: "forest-book.appspot.com",
+                            messagingSenderId: "315342178024"
+                        };
+
+                        firebase.initializeApp(config);
+
+                        var database = firebase.database();
+                        var user = firebase.auth().currentUser;
+                        var name, email, photoUrl, uid, emailVerified;
+
+
+
+                        if (user != null) {
+                            name = user.displayName;
+                            uid = user.getToken();
+                            console.log("  Photo URL: " + uid);
+                        }else{
+                            console.log("  No user ");
+
+                        }
+
+                        firebase.auth().onAuthStateChanged(function(user) {
+                            if (user) {
+                                console.log("  Photo URL: " + user);
+                            } else {
+                                console.log("  No user ");
+                            }
+                        });
+
+                        var firebaseOrdersCollection = database.ref().child('users');
+                        //this function is called when the submit button is clicked
+                        function submitOrder() {
+                            //Grab order data from the form
+                            var order = {
+                                fullName: $('#fullNameField').val(),
+                                notes: $('#notesField').val(),
+                            };
+
+                            //'push' (aka add) your order to the existing list
+                            firebaseOrdersCollection.push(order); //'orders' is the name of the 'collection' (aka database table)
+
+                        };
+
+
+                        firebaseOrdersCollection.on('value',function(users){
+
+                            var allOrdersHtml = "";
+
+                            users.forEach(function(OrderReference){
+
+                                var order = OrderReference.val();
+                                console.log(order); //check your console to see it!
+
+                                 var individialOrderHtml =	`<div class='item'>
+												<h1>`+order.name+`</h1>
+												<p>Notes: `+order.notes+`</p>
+											</div>`;
+
+                                allOrdersHtml = allOrdersHtml + individialOrderHtml;
+                            });
+
+                            $('#previousOrders').html(allOrdersHtml);
+
+                        });
+
+
+                </script>
+
+            </div >
+
+            <div style="background-image: url('img/pageb.jpg');background-size: 100% 100%;"> 30
+                <br>
+                <img src="img/species__image-panda.jpg" style=" width: 300px; height: 200px; padding:50px ">
             </div>
             <div style="background-image: url('img/pagef.jpg');background-size: 100% 100%;" > 2
                 <h1 style="text-align: center">Голяма панда</h1>

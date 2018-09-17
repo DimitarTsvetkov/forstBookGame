@@ -68,7 +68,7 @@ class Login extends Component {
 
 
                 let afterLogin = Routes.MENU;
-                if(result.email === 'apetrovdev@gmail.com'){
+                if(result.email === 'e@abv.bg'){
                     afterLogin = Routes.ADMIN
                 }
                 history.push(afterLogin);
