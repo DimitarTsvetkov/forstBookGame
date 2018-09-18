@@ -43,7 +43,7 @@ class Statistic extends Component{
                 this.setState({
                     id: this.state.id.concat([child.key]),
                     nameArr: this.state.nameArr.concat([child.val().name]),
-                    points: this.state.points.concat([child.val().point]),
+                    points: this.state.points.concat([child.val().points]),
                     levels: this.state.levels.concat([child.val().level])
                 });
 
@@ -85,7 +85,7 @@ class Statistic extends Component{
                         <thead>
                         <tr>
                             <th>Player</th>
-                            <th>Leval</th>
+                            <th>Level</th>
                             <th>Score</th>
                         </tr>
                         </thead>
