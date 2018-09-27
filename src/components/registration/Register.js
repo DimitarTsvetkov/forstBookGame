@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import AppBar from 'material-ui/AppBar';
-import TextField from 'material-ui/TextField';
 import { Link, withRouter } from 'react-router-dom';
 import {lightGreen700} from 'material-ui/styles/colors';
 import {lightGreen900} from 'material-ui/styles/colors';
 import { auth } from '../../firebase';
 import * as Routes from '../constants/Routes';
 import { componentDidMount } from 'react-lifecycle-hoc';
-import * as firebase from 'firebase';
 
+import { firebase, db } from '../../firebase';
+import _firebase from 'firebase';
 
 const SignUpPage = ({ history }) =>
     <div>
@@ -20,6 +17,7 @@ const SignUpPage = ({ history }) =>
 const INITIAL_STATE = {
     name:'',
     email: '',
+    username: '',
     passwordOne: '',
     passwordTwo: '',
     phone:'',
@@ -42,28 +40,31 @@ class Register extends Component {
 
     onSubmit = (event) => {
         const {
+            name,
             username,
             email,
             passwordOne,
+
         } = this.state;
 
         const {
             history,
         } = this.props;
 
-        const rootRef = firebase.database();
-        const post = rootRef.ref('users');
-        var data ={
-            name:this.state.name,
-            username:this.state.username,
-            email:this.state.email
-        }
-        post.push(data);
+
 
         auth.doCreateUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
                 this.setState(() => ({ ...INITIAL_STATE }));
-                history.push(Routes.MENU);
+
+                    const rootRef =  _firebase.database();
+                    const post = rootRef.ref().child('users').child(authUser.uid);
+
+                    post.child("email").set(email);
+                    post.child("name").set(name);
+                    post.child("username").set(username);
+
+                    history.push(Routes.MENU);
 
             })
             .catch(error => {
@@ -71,7 +72,10 @@ class Register extends Component {
             });
 
         event.preventDefault();
+
     }
+
+
 
     render() {
         const {

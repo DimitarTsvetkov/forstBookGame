@@ -1,5 +1,6 @@
 export const HOME = '/home';
 export const MENU = '/menu';
+export const ADMIN = '/admin';
 export const ADMINFORM = '/adminform';
 export const LOG_IN = '/login';
 export const USERS = '/userAction';
